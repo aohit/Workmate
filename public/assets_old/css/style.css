@@ -1,0 +1,266 @@
+#datatable tbody .odd {
+    height: auto; /* Adjust the height as needed */
+}
+#datatable tbody tr td {
+    padding: 4px 10px; /* Adjust the height as needed */
+    vertical-align: middle;
+} 
+
+
+div#datatable_info {
+    width: 50%;
+    float: left;
+    padding-top: 10px;
+}
+
+div#datatable_filter {
+    padding: 3px 12px;
+}
+
+div#datatable_paginate {
+    padding: 0px 12px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    padding: 0 18px !important;
+    color: black !important;
+    }
+
+    .readonly {
+        border: 1px solid #cbc5c5;
+        height: 110px;
+        background-color: #e0e0e1a8;
+    }
+    
+    .innearcontainer {
+        padding: 15px 0px 0px 20px;
+    }
+    
+    p.content {
+        margin-left: 10px;
+        border-left: 2px solid #383636bf;
+        overflow: auto;
+        height: 45px;
+        padding-left: 10px;
+    }
+    
+    
+    .rating-circle{
+        height: 50px;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*14/09/2024*/
+    .font60 {
+        font-size: 60px !important;
+    }
+   .dataTables_scroll {
+    margin: 15px 0px;
+}
+.badge-outline-success {
+    padding: 3px 5px !important;
+    font-size: 12px !important;
+}
+.flexblockclass {
+    display: flex;
+    align-items: center;
+    }
+@media (max-width:1335px) {
+    .flexblockclass {
+    display: block !important;
+    }
+}
+
+
+.box-height {
+    height: 100% !important;
+    max-height: 205px !important;
+}
+
+@media screen and (max-width: 576px) {
+ 
+.box-height {
+    max-height: 195px !important;
+}
+.dataTables_wrapper .dataTables_filter {
+    text-align: left !important;
+}
+}
+
+@media screen and (max-width: 500px) {
+    .box-height {
+        max-height: 165px !important;
+    }
+}@media screen and (max-width: 500px) {
+    .box-height {
+        max-height: 165px !important;
+    }
+}
+@media screen and (max-width: 765px) {
+#datatable_wrapper ul.pagination {
+    margin-top: 15px !important;
+}
+body[data-leftbar-size=condensed]:not([data-layout=compact]) {
+    min-height: unset !important;
+}
+
+.dataTables_scroll {
+    margin-bottom: 10px;
+}
+}
+@media (max-width: 767.98px) {
+
+    li.paginate_button.next, li.paginate_button.previous {
+        font-size: 13px !important;
+    }
+    div#datatable_info {
+        padding-top: 15px !important;
+    }
+    div#datatable_info {
+        width: 100% !important;
+        float: none !important
+    }
+    #datatable_wrapper button.btn.btn-xs.rounded-pill {
+        font-size: 8px !important;
+    }
+}
+@media (max-width: 420px) {
+#wrapper ul.pagination {
+    margin-top: 10px !important;
+}
+}
+@media (max-width: 420px) {
+div#datatable_filter {
+    overflow: auto;
+}
+}
+
+  @media screen and (max-width: 991px) {
+    body[data-leftbar-size=condensed] .left-side-menu {
+    z-index: 22 !important; 
+  width: 240px !important;
+}
+body[data-leftbar-size=condensed] .left-side-menu #sidebar-menu>ul>li>a span {
+    display: block !important;
+    padding-left: 25px;
+}
+} 
+@media screen and (max-width: 991px) {
+#sidebar-menu>ul>li>a {
+    display: flex !important;
+}
+body[data-leftbar-size=condensed] .left-side-menu #sidebar-menu>ul>li>a span {
+    display: none;
+    padding-left: 5px !important;
+}
+
+}
+
+@media screen and (max-width: 991px) {
+.content-page #datatable_length {
+    text-align: left !important;
+}
+div#datatable_filter {
+    text-align: right !important;
+    padding-left: 0 !important;
+}
+
+.dataTables_length button {
+    padding: 5px 25px !important;
+}
+}
+@media screen and (max-width: 576px) {
+#datatable button.btn-soft-success {
+    padding: 3px 10px !important;
+     font-size: 11px !important;
+}
+div#datatable_filter {
+    text-align: left !important;
+    padding-left: 0 !important;
+}
+}
+@media screen and (max-width: 340px) {
+#datatable_filter input {
+    width: 160px !important;
+}
+}
+@media screen and (max-width: 470px) {
+
+    #datatable button.btn-soft-success {  
+        margin-top: 25px !important;  
+    }
+}
+
+.dataTables_scrollHeadInner th {
+    text-wrap: nowrap;
+}
+
+
+
+button.btn.btn-soft-success {
+    text-wrap: nowrap;
+}
+#calendar h2 {
+    font-size: 16px !important;
+}
+#calendar button {
+    text-wrap: nowrap;
+}
+@media screen and (max-width: 375px) {
+#calendar button {
+    font-size: 12px;
+}
+}
+.navbar-custom .button-menu-mobile.disable-btn {
+    display: block !important;
+}
+.box-height {
+    height: 80% !important;
+}
+/*--------------------------------------------------------------- hr page css changes------------------------------------------------- */
+
+
+a#readMoreBtn6 {
+    text-wrap: nowrap;
+}
+
+
+@media screen and (max-width: 575px) {
+.bg-picture img {
+    width: 60px !important;
+    height: 60px !important;
+}
+.clearfix {
+    font-size: 12px;
+}
+.bg-picture  .deactive-all-tab {
+    justify-content: center;
+}
+}
+/* 23-09-2024 */
+
+.dynamicInput i.fa.fa-pencil-square-o, i.fa.fa-trash-o {
+    font-size: 20px !important;
+}
+table.table.dataTable.no-footer {
+    width: 100% !important;
+}
+
+@media screen and (max-width: 1562px) {
+    .box-height {
+        height: 100% !important;
+        max-height: 180px !important;
+    }
+    
+}
+
+@media screen and (max-width: 576px) {
+    .box-height h3 {
+        font-size: 18px !important
+    }
+    .box-height h2 {
+        font-size: 40px !important;
+    }
+ }

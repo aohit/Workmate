@@ -1,0 +1,297 @@
+ @extends('user.layouts.app')
+
+ @section('content')
+
+
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="header-title mb-3"> {{ $sub_title }}</h4>
+
+                    <form>
+                        
+
+                            <ul class="nav nav-pills bg-light nav-justified form-wizard-header mb-4">
+                                <li class="nav-item">
+                                    <a href="#basictab1" onclick="tabClick(this, 1)" class="nav-link rounded-0 pt-2 pb-2 active"> 
+                                        <i class="mdi mdi-account-circle me-1"></i>
+                                        <span class="d-none d-sm-inline">Goal</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#basictab2" onclick="tabClick(this, 2)" class="nav-link rounded-0 pt-2 pb-2">
+                                        <i class="mdi mdi-face-profile me-1"></i>
+                                        <span class="d-none d-sm-inline">Test</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#basictab3" onclick="tabClick(this, 3)" class="nav-link rounded-0 pt-2 pb-2">
+                                        <i class="mdi mdi-checkbox-marked-circle-outline me-1"></i>
+                                        <span class="d-none d-sm-inline">Test</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content b-0 mb-0 pt-0">
+                                <div class="tab-pane" id="basictab1">
+                                    
+                                </div>
+
+                                <div class="tab-pane" id="basictab2">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label" for="name"> First name</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="name" name="name" class="form-control" value="Francis">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label" for="surname"> Last name</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="surname" name="surname" class="form-control" value="Brinkman">
+                                                </div>
+                                            </div>
+                    
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label" for="email">Email</label>
+                                                <div class="col-md-9">
+                                                    <input type="email" id="email" name="email" class="form-control" value="cory1979@hotmail.com">
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+                                </div>
+
+                                <div class="tab-pane" id="basictab3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="text-center">
+                                                <h2 class="mt-0"><i class="mdi mdi-check-all"></i></h2>
+                                                <h3 class="mt-0">Thank you !</h3>
+
+                                                <p class="w-75 mb-2 mx-auto">Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam
+                                                    mattis dictum aliquet.</p>
+
+                                                <div class="mb-3">
+                                                    <div class="form-check d-inline-block">
+                                                        <input type="checkbox" class="form-check-input" id="customCheck1">
+                                                        <label class="form-check-label" for="customCheck1">I agree with the Terms and Conditions</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row -->
+                                </div> 
+                            </div> <!-- tab-content -->
+
+
+
+                         
+                    </form>
+
+                </div> <!-- end card-body -->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+
+         
+    </div> 
+    <!-- end row -->
+
+ 
+      
+
+ </div>
+ <?php 
+        $addButtonHtml =
+             '<button type="button" onclick="addForm(this);return false;" class="btn btn-outline-primary waves-effect waves-light">Add</button>';
+      ?>
+ @endsection
+
+ @section('page-js-script')
+ <script>
+$(document).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    window.table = $('#datatable').DataTable({
+        ajax: {
+            "url": "{{route('goal.list')}}",
+            "type": "POST",
+            "dataType": "json",
+
+        },
+        "dom": '<"dataTables_length">frtip', 
+            initComplete: function() {
+                $("div.dataTables_length").html('<?php echo $addButtonHtml; ?>');
+                    },
+        columnDefs: [{
+                targets: 0,
+                mData: 'title'
+            },
+            {
+                targets: 1,
+                mData: 'role'
+            },
+            {
+                targets: 2,
+                mData: 'status'
+            },
+            {
+                targets: 3,
+                mData: 'action'
+            }
+
+        ]
+    }); 
+   
+});
+
+function tabClick(e, tab) {
+        $.ajax({
+            type: "POST",
+            url: "{{route('performance.tab')}}",
+            data: {
+                'tab': tab
+            },
+            success: function(data) {
+                $(".modal-body-data").html(data);
+                $("#bs-example-modal-lg").modal("show");
+            },
+            error: function() {
+                alert("Failed to load content.");
+            }
+        });
+    }
+
+function addForm(e) {
+    var contentUrl = "{{route('goal.create')}}";
+    $.ajax({
+        type: "GET",
+        url: contentUrl,
+        success: function(data) {
+            $(".modal-body-data").html(data);
+            $("#bs-example-modal-lg").modal("show");
+        },
+        error: function() {
+            alert("Failed to load content.");
+        }
+    });
+}
+
+function editForm(e, id, url) {  
+    $.ajax({
+        type: "GET",
+        url: url,
+        data:{'id':id},
+        success: function(data) {
+            $(".modal-body-data").html(data);
+            $("#bs-example-modal-lg").modal("show");
+        },
+        error: function() {
+            alert("Failed to load content.");
+        }
+    });
+}
+
+
+function formSubmit(e) {
+    $('#formSubmit').find('.st_loader').show(); 
+    event.preventDefault();
+    var formData = new FormData($('#formSubmit')[0]);
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('goal.store') }}",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {  
+            if(response.success == 1){
+                table.ajax.reload(); 
+                toastr.success(response.message, 'Success');
+                $('#formSubmit').find('.st_loader').hide();
+                $("#bs-example-modal-lg").modal("hide"); 
+            }else{
+                toastr.error("Find some error", 'Error'); 
+                $('#formSubmit').find('.st_loader').hide();
+            }
+                 
+
+        },
+        error: function(xhr, status, error) {
+            $('#formSubmit').find('.st_loader').hide();
+            var $err = ''
+            $.each(xhr.responseJSON.errors, function(key, value) {
+                $err = $err + value + "<br>"
+            })
+            toastr.error($err, 'Error')
+        }
+    });
+}
+
+function deleteRow(e, id, url) {
+   
+if (confirm("Are You sure want to delete this Row!")) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url: url,
+        type: "POST", 
+        data:{'id':id},
+        success: function(res) {
+            toastr.success(res.message, 'Success');
+            table.ajax.reload(); 
+        },
+        error: function(data) {
+            if (typeof data.responseJSON.status !== 'undefined') {
+                toastr.error(data.responseJSON.error, 'Error');
+            } else {
+                $.each(data.responseJSON.errors, function(key, value) {
+                    toastr.error(value, 'Error');
+                });
+            }
+            console.log('Error:', data);
+        }
+    });
+}
+}
+
+function changeStatus(e, id, url,status) {
+   
+   if (confirm("Are You sure want to delete this Row!")) {
+       $.ajaxSetup({
+           headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+       });
+       $.ajax({
+           url: url,
+           type: "POST", 
+           data:{'id':id, 'status':status},
+           success: function(res) {
+               toastr.success(res.message, 'Success');
+               table.ajax.reload(); 
+           },
+           error: function(data) {
+               if (typeof data.responseJSON.status !== 'undefined') {
+                   toastr.error(data.responseJSON.error, 'Error');
+               } else {
+                   $.each(data.responseJSON.errors, function(key, value) {
+                       toastr.error(value, 'Error');
+                   });
+               }
+               console.log('Error:', data);
+           }
+       });
+   }
+   }
+ </script>
+ @endsection

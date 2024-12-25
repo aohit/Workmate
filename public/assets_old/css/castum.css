@@ -1,0 +1,35 @@
+.logo-sm img {
+    width: 20px !important;
+    height: 20px !important;
+}
+@media (max-width: 991.98px) {
+    .left-side-menu {
+        display: none;
+        z-index: 10 !important;
+    }
+}
+@media screen and (max-width: 991px) {
+    body[data-leftbar-size=condensed] .left-side-menu {
+        z-index: -17 !important;
+        width:  240px !important;
+    }
+    
+}
+body[data-leftbar-size=condensed] .left-side-menu {
+    position: absolute;
+    padding-top: 0;
+    width: 70px;
+    z-index: 5;
+}
+@media screen and (max-width: 768px) {
+    body[data-leftbar-size=condensed] .left-side-menu {
+        width: 230px !important;
+        z-index: 22 !important;
+    }
+}
+/* div#left-side-menu {
+    display: block !important;
+} */
+body[data-leftbar-size=condensed] .user-box {
+    display:block;
+    }

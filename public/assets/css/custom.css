@@ -1,0 +1,135 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.bg-ad68e6 {
+    background-color: #ad68e6;
+}
+
+.bg-4cb050 {
+    background-color: #4cb050;
+}
+
+.search-bar {
+    margin-bottom: 15px;
+}
+
+.table-container {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0px;
+    padding: 0px;
+}
+
+h5 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.search-bar {
+    margin-bottom: 15px;
+}
+
+.difference-positive {
+    color: green;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.difference-negative {
+    color: red;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Ensure table content wraps and does not overflow */
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+th,
+td {
+    /* white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden; */
+    font-size: 12px;
+}
+
+.font9 {
+    font-size: 9px;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.search-wrapper input {
+    padding-left: 30px;
+}
+
+.bg-eaf2ff {
+    background-color: #eaf2ff;
+}
+
+.table-container table thead th {
+    background-color: #ebf2fe;
+}
+
+/* .difference-positive {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* Adjust the gap size here */
+/*font-size: 18px; */
+/*Adjust the font size for the number
+    } */
+
+.circle-up {
+    width: 16px;
+    /* Adjust the size of the icon */
+    height: 16px;
+    border: 2px solid green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    font-size: 10px;
+    /* Adjust the icon size */
+}
+
+.circle-down {
+    width: 16px;
+    /* Adjust the size of the icon */
+    height: 16px;
+    border: 2px solid red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 10px;
+    /* Adjust the icon size */
+}
+#refreshButton{
+    background-color: #f0d2ce;
+}
+.fs14{
+    font-size: 14px;
+}
